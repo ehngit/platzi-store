@@ -2,8 +2,19 @@
 
 {{ title }}
 
+
+
 <div *ngIf="title === 'edith'">
   Este es un div
+</div>
+
+<div *ngIf="title === 'pedro'">
+  Este es pedro
+</div>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'pedro'">Este es pedro</p>
+  <p *ngSwitchCase="'pablo'">Este es pablo</p>
 </div>
 
 <button (click)="addItem()">Add Item</button>
@@ -16,8 +27,6 @@
   </li>
 </ul>
 
-
-<div *ngFor="let product of products; index as i">
-  {{ product.title }}
-  <img [src]="product.image" alt="">
+<div *ngFor="let product of products">
+  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
 </div>
