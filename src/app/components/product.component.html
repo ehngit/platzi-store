@@ -1,6 +1,6 @@
-<h3>Soy un componente producto</h3>
-{{ product.title }}
+<h3 appHighlight> {{ product.title | uppercase }} </h3>
 <img [src]="product.image" alt="">
-{{ product.price }}
-
+<strong> {{ product.price | currency }} </strong>
+<p>{{ product.description | slice:0:10}}</p>
+<p> {{ today | date:'HH:mm' }} </p>
 <button (clic)="addCart()">Añadir al carrito</button>
