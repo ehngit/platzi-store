@@ -24,9 +24,15 @@ export class ProductDetailComponent implements OnInit {
     this.router.params.subscribe( (params: Params) => {
       const id = params.id;
       console.log(id);
-      this.product = this.productService.getProduct(id);
+      //this.product = this.productService.getProduct(id);
       console.log(this.product);
     });
   }
 
+  fetchProduct(id: string){
+    this.productService.getProduct(id).subscribe(( product ) => {
+      console.log(product);
+      this.product = product;
+    });
+  }
 }
