@@ -25,6 +25,7 @@ export class ProductDetailComponent implements OnInit {
       const id = params.id;
       console.log(id);
       //this.product = this.productService.getProduct(id);
+      this.fetchProduct(id);
       console.log(this.product);
     });
   }
@@ -33,6 +34,20 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProduct(id).subscribe(( product ) => {
       console.log(product);
       this.product = product;
+    });
+  }
+
+  createProduct() {
+    const newProduct: Product = {
+      id: '222',
+      title: 'nuevo desde angular',
+      image: 'assets/images/banner-1.png',
+      price: 3000,
+      description: 'Nuevo Artículo'
+    };
+    this.productService.createProduct(newProduct)
+    .subscribe( (product) => {
+      console.log(product);
     });
   }
 }
