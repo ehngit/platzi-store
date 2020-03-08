@@ -50,4 +50,23 @@ export class ProductDetailComponent implements OnInit {
       console.log(product);
     });
   }
+
+  updateProduct() {
+    const updateProduct: Partial<Product> = {
+      title: 'editar desde angular',
+      image: 'assets/images/pin.png',
+      description: 'Editar Artículo'
+    };
+    this.productService.updateProduct('222', updateProduct)
+    .subscribe( (product) => {
+      console.log(product);
+    });
+  }
+
+  deleteProduct(){
+    this.productService.deleteProduct('222')
+    .subscribe( (respuesta) => {
+      console.log(respuesta);
+    });
+  }
 }
