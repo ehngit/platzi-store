@@ -21,8 +21,6 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     /*Me suscribo a ese cambio,array function*/
     this.router.params.subscribe( (params: Params) => {
-      /** Recibimos todos los parametros que tiene la ruta */
-      //console.log(params);
       const id = params.id;
       console.log(id);
       this.product = this.productService.getProduct(id);
