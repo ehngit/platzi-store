@@ -2,6 +2,5 @@
 <img [src]="product.image" alt="">
 <strong> {{ product.price | currency }} </strong>
 <p>{{ product.description | slice:0:10}}</p>
-<p> {{ today | date:'HH:mm' }} </p>
 <button (clic)="addCart()" mat-raised-button color="primary">Añadir al carrito</button>
 <a [routerLink]="['/products', product.id]">Ver Detalle</a>
