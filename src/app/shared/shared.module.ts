@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MaterialModule } from './../material/material.module';
 import { CartComponent } from './components/cart/components/cart/cart.component';
 
+
 @NgModule({
   declarations: [
     ExponentialPipe,
