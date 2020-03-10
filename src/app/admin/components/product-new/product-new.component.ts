@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 import { finalize } from 'rxjs/operators';
 
@@ -8,17 +9,20 @@ import { MyValidator } from './../../../utils/validators';
 
 import { ProductsService } from './../../../core/services/products/products.service';
 import { Observable } from 'rxjs';
-import { AngularFireStorage } from '@angular/fire/storage';
+import * as firebase from 'firebase';
 
 @Component({
-  selector: 'app-form-product',
-  templateUrl: './form-product.component.html',
-  styleUrls: ['./form-product.component.scss']
+  selector: 'app-product-new',
+  templateUrl: './product-new.component.html',
+  styleUrls: ['./product-new.component.scss']
 })
-export class FormProductComponent implements OnInit {
+export class ProductNewComponent implements OnInit {
 
   form: FormGroup;
   image$: Observable<any>;
+
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -60,8 +64,9 @@ export class FormProductComponent implements OnInit {
         });
       })
     )
-    .subscribe();
-
+    .subscribe( (res) => {
+      console.log('Ok');
+    });
   }
 
   private buildForm() {
@@ -77,5 +82,7 @@ export class FormProductComponent implements OnInit {
   get priceField() {
     return this.form.get('price');
   }
+
+
 
 }

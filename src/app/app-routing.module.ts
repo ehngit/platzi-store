@@ -3,7 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { LayoutComponent } from './layout/layout.component';
 
-import { AdminGuard } from './admin.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 
 const routes: Routes = [
   {

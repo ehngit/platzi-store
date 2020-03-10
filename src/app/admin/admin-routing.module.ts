@@ -9,6 +9,7 @@ import { ProductsListComponent } from './components/products-list/products-list.
 import { FormProductComponent } from './components/form-product/form-product.component';
 
 import { MaterialModule } from './../material/material.module';
+import { ProductNewComponent } from './components/product-new/product-new.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 const routes: Routes = [
@@ -35,6 +36,10 @@ const routes: Routes = [
       {
         path: 'products/create',
         component: FormProductComponent
+      },
+      {
+        path: 'products/new',
+        component: ProductNewComponent
       },
       {
         path: 'products/edit/:id',

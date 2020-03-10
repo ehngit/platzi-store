@@ -10,29 +10,26 @@ import { ProductsService } from './../../../core/services/products/products.serv
 export class ProductsListComponent implements OnInit {
 
   products = [];
-
   displayedColumns: string[] = ['id', 'title', 'price', 'actions'];
 
   constructor(
     private productsService: ProductsService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.fetchProducts();
   }
 
-  fetchProducts(){
+  fetchProducts() {
     this.productsService.getAllProducts()
-    .subscribe( (products) => {
-      console.log(products);
+    .subscribe(products => {
       this.products = products;
     });
   }
 
-  deleteProduct(id: string){
+  deleteProduct(id: string) {
     this.productsService.deleteProduct(id)
-    .subscribe((respuesta) => {
-      console.log(respuesta);
+    .subscribe(rta => {
       this.fetchProducts();
     });
   }
