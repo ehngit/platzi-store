@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AngularFireStorage } from 'angularfire2/storage';
+
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { finalize } from 'rxjs/operators';
 
@@ -28,7 +29,7 @@ export class ProductNewComponent implements OnInit {
     private formBuilder: FormBuilder,
     private productsService: ProductsService,
     private router: Router,
-    private storage: AngularFireStorage
+    private storage: AngularFirestore
   ) {
     this.buildForm();
   }
@@ -51,7 +52,7 @@ export class ProductNewComponent implements OnInit {
   uploadFile(event) {
     const file = event.target.files[0];
     const name = 'image.png';
-    const fileRef = this.storage.ref(name);
+    /*const fileRef = this.storage.ref(name);
     const task = this.storage.upload(name, file);
 
     task.snapshotChanges()
@@ -66,7 +67,7 @@ export class ProductNewComponent implements OnInit {
     )
     .subscribe( (res) => {
       console.log('Ok');
-    });
+    });*/
   }
 
   private buildForm() {
